@@ -96,9 +96,26 @@ services:
       - WORKER_LOG_LEVEL=info
     depends_on:
       - opencti
-    deploy:
-      mode: replicated
-      replicas: 3
+    restart: always
+
+  worker2:
+    image: opencti/worker:6.1.12
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - WORKER_LOG_LEVEL=info
+    depends_on:
+      - opencti
+    restart: always
+
+  worker3:
+    image: opencti/worker:6.1.12
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - WORKER_LOG_LEVEL=info
+    depends_on:
+      - opencti
     restart: always
 
   connector-export-file-stix:
