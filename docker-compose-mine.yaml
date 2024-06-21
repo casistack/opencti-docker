@@ -111,6 +111,7 @@ services:
       - CONNECTOR_NAME=ExportFileStix2
       - CONNECTOR_SCOPE=application/json
       - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_EXPORT_FILE_STIX_ID=${CONNECTOR_EXPORT_FILE_STIX_ID}
     restart: always
     depends_on:
       - opencti
@@ -125,6 +126,7 @@ services:
       - CONNECTOR_NAME=ExportFileCsv
       - CONNECTOR_SCOPE=text/csv
       - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_EXPORT_FILE_CSV_ID=${CONNECTOR_EXPORT_FILE_CSV_ID}
     restart: always
     depends_on:
       - opencti
@@ -139,6 +141,7 @@ services:
       - CONNECTOR_NAME=ExportFileTxt
       - CONNECTOR_SCOPE=text/plain
       - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_EXPORT_FILE_TXT_ID=${CONNECTOR_EXPORT_FILE_TXT_ID}
     restart: always
     depends_on:
       - opencti
@@ -155,6 +158,7 @@ services:
       - CONNECTOR_SCOPE=application/json,text/xml
       - CONNECTOR_AUTO=true
       - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_IMPORT_FILE_STIX_ID=${CONNECTOR_IMPORT_FILE_STIX_ID}
     restart: always
     depends_on:
       - opencti
@@ -174,6 +178,7 @@ services:
       - CONNECTOR_CONFIDENCE_LEVEL=15
       - CONNECTOR_LOG_LEVEL=info
       - IMPORT_DOCUMENT_CREATE_INDICATOR=true
+      - CONNECTOR_IMPORT_DOCUMENT_ID=${CONNECTOR_IMPORT_DOCUMENT_ID}
     restart: always
     depends_on:
       - opencti
@@ -192,6 +197,7 @@ services:
       - CONNECTOR_ONLY_CONTEXTUAL=false
       - CONNECTOR_CONFIDENCE_LEVEL=15
       - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_ANALYSIS_ID=${CONNECTOR_ANALYSIS_ID}
     restart: always
     depends_on:
       - opencti
